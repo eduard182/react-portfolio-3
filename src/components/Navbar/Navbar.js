@@ -6,17 +6,26 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react'; // eslint-disable-line no-unused-vars
+import React, { PropTypes } from 'react'; // eslint-disable-line no-unused-vars
+import NavbarItem from '../NavbarItem';
 
 class Navbar {
 
+  static propTypes = {
+    items : PropTypes.array
+  };
+
   render() {
+    var items = this.props.items;
     return (
       <div className="navbar-top" role="navigation">
         <div className="container">
           <a className="navbar-brand row" href="/">
             <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
-            <span>React.js Starter Kit</span>
+            <span>React Portfolio</span>
+            {this.props.items.map(function(item) {
+               return <NavbarItem {...item}/>;
+            })}
           </a>
         </div>
       </div>

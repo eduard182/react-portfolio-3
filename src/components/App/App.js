@@ -16,6 +16,11 @@ import ContentPage from '../ContentPage';
 import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
 
+var nbItems = [
+      { title : "Projects", href : "/projects" },
+      { title : "Skills",   href : "/skills" }
+    ];
+
 class App {
 
   static propTypes = {
@@ -53,7 +58,7 @@ class App {
 
     return (
       <div className="App">
-        <Navbar />
+        <Navbar items={nbItems} />
         {
           this.props.path === '/' ?
           <div className="jumbotron">
