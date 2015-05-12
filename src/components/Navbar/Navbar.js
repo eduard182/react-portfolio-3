@@ -20,13 +20,15 @@ class Navbar {
     return (
       <div className="navbar-top" role="navigation">
         <div className="container">
-          <a className="navbar-brand row" href="/">
-            <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
-            <span>React Portfolio</span>
-            {this.props.items.map(function(item) {
-               return <NavbarItem {...item}/>;
+          <ul className="nav">
+            <a className="navbar-brand row" href="/">
+              <span>ZDW</span>
+              <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
+                         {this.props.items.map(function(item) {
+               return <NavbarItem {...item} key={item.title} />;
             })}
-          </a>
+            </a>
+          </ul>
         </div>
       </div>
     );
