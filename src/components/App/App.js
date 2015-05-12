@@ -19,7 +19,8 @@ import setViewport from './setViewport';
 var nbItems = [
       { title : "Projects", href : "/projects" },
       { title : "Skills",   href : "/skills" },
-      { title : "Resume",   href : "/resume" }
+      { title : "Resume",   href : "/resume" },
+      { title : "About",    href : "/about"}
     ];
 
 class App {

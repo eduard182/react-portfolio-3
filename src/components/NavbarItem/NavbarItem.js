@@ -10,9 +10,11 @@ class NavbarItem {
 
   render() {
     return (
+      <li>
         <a href={this.props.href} className="NavbarItem navbar-brand">
           <span>{this.props.title}</span>
         </a>
+      </li>
     );
   }
 

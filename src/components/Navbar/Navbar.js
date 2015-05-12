@@ -20,15 +20,15 @@ class Navbar {
     return (
       <div className="navbar-top" role="navigation">
         <div className="container">
-          <ul className="nav">
             <a className="navbar-brand row" href="/">
               <span>ZDW</span>
               <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
-                         {this.props.items.map(function(item) {
-               return <NavbarItem {...item} key={item.title} />;
-            })}
             </a>
-          </ul>
+            <ul className="nav nav-pills">
+              {this.props.items.map(function(item) {
+                 return <NavbarItem {...item} key={item.title} />;
+              })}
+            </ul>
         </div>
       </div>
     );
