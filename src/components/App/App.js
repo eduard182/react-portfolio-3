@@ -15,13 +15,25 @@ import Navbar from '../Navbar';
 import ContentPage from '../ContentPage';
 import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
+import ProjectPage from '../ProjectPage';
 
+
+//START STATIC DATA
 var nbItems = [
-      { title : "Projects", href : "/projects" },
-      { title : "Skills",   href : "/skills" },
-      { title : "Resume",   href : "/resume" },
-      { title : "About",    href : "/about"}
+      { title : 'Projects', href : '/projects' },
+      { title : 'Skills',   href : '/skills' },
+      { title : 'Resume',   href : '/resume' },
+      { title : 'About',    href : '/about'}
     ];
+
+var projects = [ { name : 'Ping Collector'},
+                 { name : 'Stem Esteem'},
+                 { name : 'DAoC Auto Login'},
+                 { name : 'RealSocial'},
+                 { name : 'ZDWare LLC'}
+                ];    
+
+//END STATIC DATA
 
 class App {
 
@@ -53,33 +65,47 @@ class App {
     invariant(page !== undefined, 'Failed to load page content.');
     this.props.onSetTitle(page.title);
 
+    //BEGIN PAGE ROUTING
+
     if (page.type === 'notfound') {
       this.props.onPageNotFound();
       return React.createElement(NotFoundPage, page);
     }
 
+    var pageElement = <ContentPage className='container' {...page} />;
+
+    switch (page.type) {
+      case 'project': {
+        pageElement = <ProjectPage projects={projects}/>;
+        break;
+      }
+      default: {
+        pageElement = <ContentPage className='container' {...page} />;
+      }
+    }
+
     return (
-      <div className="App">
+      <div className='App'>
         <Navbar items={nbItems} />
         {
           this.props.path === '/' ?
-          <div className="jumbotron">
-            <div className="container text-center">
+          <div className='jumbotron'>
+            <div className='container text-center'>
               <h1>Zack Whipkey</h1>
               <p>A portfolio built using React.</p>
             </div>
           </div> :
-          <div className="container">
+          <div className='container'>
             <h2>{page.title}</h2>
           </div>
         }
-        <ContentPage className="container" {...page} />
-        <div className="navbar-footer">
-          <div className="container">
-            <p className="text-muted">
+        {pageElement}
+        <div className='navbar-footer'>
+          <div className='container'>
+            <p className='text-muted'>
               <span>© Zack Whipkey</span>
-              <span><a href="/">Home</a></span>
-              <span><a href="/privacy">Privacy</a></span>
+              <span><a href='/'>Home</a></span>
+              <span><a href='/privacy'>Privacy</a></span>
               <span>{'Viewport: ' + this.props.viewport.width + 'x' + this.props.viewport.height}</span>
             </p>
           </div>

@@ -16,7 +16,6 @@ class Navbar {
   };
 
   render() {
-    var items = this.props.items;
     return (
       <div className="navbar-top" role="navigation">
         <div className="container">
