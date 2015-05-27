@@ -1,4 +1,5 @@
-
+## ProjectPage, SingleItemList, and Project Stub -- May 27th, 2015
+  After some rough starts, and confusion concerning JSX/debugging gulp tasks/builds, I gradually was able to build the Project Page implementation. This is unstyled currently, but I plan on using flexbox, over the usual bootstrap grids for a change of pace and "standardization". Additionally, I need to deal with active states on buttons still, as the project page uses the first project as its initial state, but the button is not active. Setting the class for a certain index does not work either, as the button retains the class. To do this, I'll have to extend the parent's passed in click handler to remove all instances of "active" in the sibling nodes. 
 
 ## Navbar - May 12th, 2015
-Finished the Navbar component's first iteration and it's sub component the NavbarItem. Upon writing this though, I have to think that a subcomponent like NavbarItem isn't exactly reusable, which is what React Components tend go for. I think I did this because I wanted to make a small component from scratch. Maybe I'll refactor these together later. 
+  Finished the Navbar component's first iteration and it's sub component the NavbarItem. Upon writing this though, I have to think that a subcomponent like NavbarItem isn't exactly reusable, which is what React Components tend go for. I think I did this because I wanted to make a small component from scratch. Maybe I'll refactor these together later. 
